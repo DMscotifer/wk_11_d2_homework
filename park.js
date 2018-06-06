@@ -10,15 +10,13 @@ Park.prototype.addDinosaur = function(dinosaur) {
   this.enclosures.push(dinosaur);
 };
 
-Park.prototype.removeAllType = function(type) {
-  let i = 0;
-  for (dinosaur in this.enclosures) {
-    if(dinosaur.type === type){
-      enclosure.remove[i];
+Park.prototype.removeType = function(type) {
+  for(var i = (this.enclosures.length - 1); i >= 0; i--) {
+    if(this.enclosures[i].type === type) {
+       this.enclosures.splice(i, 1);
     }
-    i++
   }
-};
+}
 
 Park.prototype.getDinosaursByOffspring = function(num) {
   let i = 0;
