@@ -29,8 +29,8 @@ describe('Park', function() {
   });
 
   it('should get all the dinosaurs with an offspring count of more than 2', function(){
-    park.getDinosaursByOffspring(2)
-    assert.strictEqual(result.length, 1);
+    var total = park.offspringGreaterThan(2)
+    assert.strictEqual(total, 1);
   });
 
 });

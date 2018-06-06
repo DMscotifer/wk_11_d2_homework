@@ -18,15 +18,14 @@ Park.prototype.removeType = function(type) {
   }
 }
 
-Park.prototype.getDinosaursByOffspring = function(num) {
-  let i = 0;
-  let result = [];
-  for (dinosaur in this.enclosures) {
-    if(dinosaur.offspringPerYear === num){
-      result.add(dinosaur);
+Park.prototype.offspringGreaterThan = function(num) {
+  var total = 0;
+  for (dino of this.enclosures){
+    if (dino.offspringPerYear > num) {
+      total += 1;
     }
-    i++
   }
-};
+  return total;
+}
 
 module.exports = Park;
