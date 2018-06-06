@@ -9,25 +9,28 @@ describe('Park', function() {
 
   beforeEach(function() {
     park = new Park();
-    dinosaur = new Dinosaur();
+    dinosaur = new Dinosaur('carnivore', 10);
   });
 
   it('enclosure should start empty', function() {
-    assert.strictEqual(park.noOfDinosaurs, 0);
+    assert.strictEqual(park.noOfDinosaurs(), 0);
   });
 
   it('should be able to add dinosaur', function() {
     park.addDinosaur(dinosaur);
-    assert.strictEqual(park.enclosures.length, 1);
+    assert.strictEqual(park.noOfDinosaurs(), 1);
   });
 
   it('should be able to remove all dinosaurs of a particular type', function() {
+    park.addDinosaur(dinosaur);
+    assert.strictEqual(park.noOfDinosaurs(), 1);
     park.removeAllType('carnivore');
-    assert.strictEqual(park.noOfDinosaurs, 0);
+    assert.strictEqual(park.noOfDinosaurs(), 0);
   });
 
   it('should get all the dinosaurs with an offspring count of more than 2', function(){
-    assert.strictEqual(park.getDinosaursByOffspring(2).size(), 1);
+    park.getDinosaursByOffspring(2)
+    assert.strictEqual(result.length, 1);
   });
 
 });

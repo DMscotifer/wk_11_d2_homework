@@ -1,7 +1,10 @@
 const Park = function() {
   this.enclosures = [];
-  this.noOfDinosaurs = this.enclosures.length;
 };
+
+Park.prototype.noOfDinosaurs = function() {
+  return this.enclosures.length;
+}
 
 Park.prototype.addDinosaur = function(dinosaur) {
   this.enclosures.push(dinosaur);
@@ -15,6 +18,17 @@ Park.prototype.removeAllType = function(type) {
     }
     i++
   }
-}
+};
+
+Park.prototype.getDinosaursByOffspring = function(num) {
+  let i = 0;
+  let result = [];
+  for (dinosaur in this.enclosures) {
+    if(dinosaur.offspringPerYear === num){
+      result.add(dinosaur);
+    }
+    i++
+  }
+};
 
 module.exports = Park;
